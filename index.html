@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M1SX — Match One Surgical | Minimally Invasive Spine Surgery</title>
+<meta name="description" content="Match One Surgical (M1SX) advances minimally invasive spine surgery with cutting-edge techniques, world-class case coverage, and a nationwide network of top-tier surgeons and facilities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d2440;
+    --navy-2:#16365c;
+    --ice:#f2f6fa;
+    --white:#ffffff;
+    --ink:#1e2733;
+    --mut:#5d6b7c;
+    --line:#dde6ef;
+    --teal:#0e97a5;
+    --radius:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{line-height:1.15;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
+  a{color:inherit}
+  section{padding:92px 0}
+
+  /* reveal on scroll */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .rv.in{opacity:1;transform:none}
+
+  /* ---- nav ---- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.15rem;color:var(--navy)}
+  .brand img{height:40px;width:auto}
+  .nav-links{display:flex;align-items:center;gap:26px;list-style:none;font-size:.92rem;font-weight:600}
+  .nav-links a{text-decoration:none;color:var(--mut);transition:color .2s}
+  .nav-links a:hover{color:var(--navy)}
+  .btn{
+    display:inline-block;font-weight:700;font-size:.95rem;text-decoration:none;
+    padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .15s,background .2s;
+  }
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-navy:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(13,36,64,.25)}
+  .btn-line{border:2px solid var(--navy);color:var(--navy)}
+  .btn-line:hover{background:var(--navy);color:#fff}
+  .btn-sm{padding:10px 20px;font-size:.88rem}
+  @media(max-width:880px){.nav-links{display:none}}
+
+  /* ---- hero ---- */
+  .hero{position:relative;background:linear-gradient(165deg,var(--navy) 0%,var(--navy-2) 60%,#1d4a76 100%);color:#fff;padding:110px 0 120px;overflow:hidden}
+  .hero h1{color:#fff;font-size:clamp(2.4rem,5.4vw,4rem);max-width:15em;margin:18px 0 22px}
+  .hero p{color:rgba(255,255,255,.78);font-size:1.14rem;max-width:36em;margin-bottom:36px}
+  .hero .eyebrow{color:#67d3dd}
+  .spinecurve{position:absolute;right:-40px;top:0;height:100%;opacity:.14;pointer-events:none}
+  .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:44px}
+  .hb{font-size:.8rem;font-weight:700;letter-spacing:.06em;border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:8px 16px;color:rgba(255,255,255,.85)}
+
+  /* ---- mission ---- */
+  .mission{background:var(--ice)}
+  .mission blockquote{
+    font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:600;color:var(--navy);
+    line-height:1.6;max-width:46em;margin:24px auto 0;text-align:center;
+  }
+  .mission .eyebrow{display:block;text-align:center}
+
+  /* ---- video ---- */
+  .video{padding:0;background:var(--ice)}
+  .video-frame{max-width:900px;margin:0 auto;padding:0 24px 92px}
+  .video-frame .vwrap{position:relative;padding-top:56.25%;border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 60px rgba(13,36,64,.22)}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* ---- why MIS ---- */
+  .why h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:14px 0 12px;max-width:20em}
+  .why .sub{color:var(--mut);max-width:44em;margin-bottom:48px}
+  .benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .bcard{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:transform .2s,box-shadow .2s}
+  .bcard:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(13,36,64,.1)}
+  .bcard .ic{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e5f6f8,#cdeef1);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .bcard .ic svg{width:22px;height:22px;stroke:var(--teal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .bcard h3{font-size:1.06rem;margin-bottom:6px}
+  .bcard p{font-size:.92rem;color:var(--mut)}
+  @media(max-width:860px){.benefit-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.benefit-grid{grid-template-columns:1fr}}
+  details.risks{
+    margin-top:40px;border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--ice);padding:22px 26px;
+  }
+  details.risks summary{font-weight:700;color:var(--navy);cursor:pointer;font-size:1.02rem}
+  details.risks div{margin-top:14px;color:var(--mut);font-size:.95rem}
+  details.risks ul{margin:10px 0 10px 22px}
+
+  /* ---- procedures ---- */
+  .procedures{background:var(--navy);color:#fff}
+  .procedures h2{color:#fff;font-size:clamp(1.8rem,3.6vw,2.6rem);margin:14px 0 12px}
+  .procedures .sub{color:rgba(255,255,255,.65);max-width:42em;margin-bottom:48px}
+  .procedures .eyebrow{color:#67d3dd}
+  .proc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .pcard{border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);padding:26px;background:rgba(255,255,255,.04);transition:background .2s,transform .2s}
+  .pcard:hover{background:rgba(255,255,255,.08);transform:translateY(-3px)}
+  .pcard h3{color:#fff;font-size:1.12rem;margin-bottom:8px}
+  .pcard p{font-size:.92rem;color:rgba(255,255,255,.66)}
+  @media(max-width:860px){.proc-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.proc-grid{grid-template-columns:1fr}}
+
+  /* ---- glossary ---- */
+  .glossary h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:14px 0 12px}
+  .glossary .sub{color:var(--mut);margin-bottom:30px}
+  .gsearch{
+    width:100%;max-width:440px;font-family:inherit;font-size:1rem;
+    padding:14px 18px;border:2px solid var(--line);border-radius:12px;outline:none;
+    transition:border-color .2s;margin-bottom:34px;
+  }
+  .gsearch:focus{border-color:var(--teal)}
+  .terms{display:grid;grid-template-columns:1fr 1fr;gap:14px 32px}
+  .term{border-bottom:1px solid var(--line);padding:14px 4px}
+  .term b{color:var(--navy)}
+  .term span{color:var(--mut);font-size:.93rem}
+  .term.hide{display:none}
+  .noresults{color:var(--mut);font-style:italic;display:none}
+  @media(max-width:760px){.terms{grid-template-columns:1fr}}
+
+  /* ---- audiences ---- */
+  .audiences{background:var(--ice)}
+  .aud-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .acard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px}
+  .acard h3{font-size:1.35rem;margin-bottom:12px}
+  .acard p{color:var(--mut);font-size:.96rem;margin-bottom:24px}
+  @media(max-width:760px){.aud-grid{grid-template-columns:1fr}}
+
+  /* ---- contact ---- */
+  .contact h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:14px 0 34px}
+  .con-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .concard{border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .concard h3{font-size:1.05rem;margin-bottom:14px}
+  .concard p,.concard a{color:var(--mut);font-size:.98rem;text-decoration:none}
+  .concard a:hover{color:var(--navy)}
+  .concard .big{font-size:1.35rem;font-weight:800;color:var(--navy)}
+  @media(max-width:700px){.con-grid{grid-template-columns:1fr}}
+
+  /* ---- footer ---- */
+  footer{background:var(--navy);color:rgba(255,255,255,.7);padding:54px 0 40px;font-size:.88rem}
+  footer .brandline{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;color:#fff;margin-bottom:18px}
+  footer .brandline img{height:36px;background:#fff;border-radius:8px;padding:3px}
+  footer .disc{font-size:.8rem;color:rgba(255,255,255,.5);max-width:70em;margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14)}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <img src="https://m1sx.com/wp-content/uploads/2023/09/cropped-M1Sx-Logo.png" alt="M1SX logo" onerror="this.style.display='none'">
+      M1SX
+    </a>
+    <ul class="nav-links">
+      <li><a href="#why">Why MIS</a></li>
+      <li><a href="#procedures">Procedures</a></li>
+      <li><a href="#glossary">Glossary</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="btn btn-navy btn-sm" href="#audiences">For Surgeons</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="spinecurve" viewBox="0 0 200 800" aria-hidden="true">
+    <path d="M100 0 C60 100 140 200 100 300 C60 400 140 500 100 600 C60 700 140 780 100 800" fill="none" stroke="#fff" stroke-width="3"/>
+    <g fill="#fff">
+      <ellipse cx="97" cy="60" rx="26" ry="13"/><ellipse cx="112" cy="150" rx="26" ry="13"/>
+      <ellipse cx="97" cy="240" rx="26" ry="13"/><ellipse cx="88" cy="330" rx="26" ry="13"/>
+      <ellipse cx="103" cy="420" rx="26" ry="13"/><ellipse cx="115" cy="510" rx="26" ry="13"/>
+      <ellipse cx="100" cy="600" rx="26" ry="13"/><ellipse cx="90" cy="690" rx="26" ry="13"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">Match One Surgical</span>
+    <h1>Advancing minimally invasive spine surgery.</h1>
+    <p>M1SX brings cutting-edge surgical techniques and technology to spine care — with world-class representation, case coverage, and access to top-tier surgeons, physicians, and facilities nationwide.</p>
+    <a class="btn btn-navy" style="background:#fff;color:var(--navy)" href="#contact">Contact us</a>
+    <div class="hero-badges">
+      <span class="hb">Nationwide network</span>
+      <span class="hb">Case coverage</span>
+      <span class="hb">Top-tier surgeons &amp; facilities</span>
+    </div>
+  </div>
+</header>
+
+<section class="mission rv">
+  <div class="wrap">
+    <span class="eyebrow">Our mission</span>
+    <blockquote>"To enhance patient outcomes, improve surgical efficiency, and elevate the standard of care in spine surgery across the nation — empowering medical professionals with the tools and knowledge they need to transform lives through innovative and precise spine procedures."</blockquote>
+  </div>
+</section>
+
+<div class="video" id="video">
+  <div class="video-frame rv">
+    <div class="vwrap">
+      <iframe src="https://player.vimeo.com/video/1084863159?autoplay=1&muted=1&loop=1&autopause=0&title=0&portrait=0&byline=0&h=37684db8c7" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Match One Surgical video"></iframe>
+    </div>
+  </div>
+</div>
+
+<section class="why rv" id="why">
+  <div class="wrap">
+    <span class="eyebrow">Why minimally invasive</span>
+    <h2>Smaller incisions. Faster recovery. Better outcomes.</h2>
+    <p class="sub">The goal of minimally invasive spine (MIS) surgery is to stabilize the vertebral bones and spinal joints and relieve pressure on the spinal nerves — often caused by spinal instability, bone spurs, herniated discs, scoliosis, or spinal tumors. Compared to open procedures, reduced trauma to muscles and soft tissue means:</p>
+    <div class="benefit-grid">
+      <div class="bcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 12h14"/></svg></div><h3>Smaller incisions</h3><p>Better cosmetic results from incisions sometimes as small as several millimeters.</p></div>
+      <div class="bcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3.5-8-6.6-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.4-4 7.5-8 11z"/></svg></div><h3>Less blood loss</h3><p>Reduced surgical blood loss compared to open spine procedures.</p></div>
+      <div class="bcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 4v6a6 6 0 0 0 12 0V4M9 20h6M12 16v4"/></svg></div><h3>Muscle preservation</h3><p>Reduced risk of muscle damage — less or no cutting of muscle required.</p></div>
+      <div class="bcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><h3>Lower infection risk</h3><p>Reduced risk of infection and less postoperative pain.</p></div>
+      <div class="bcard"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Faster recovery</h3><p>Quicker return to daily life, with less rehabilitation required.</p></div>
+      <div class="bcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M8 12h8M12 8v8"/><rect x="3" y="3" width="18" height="18" rx="5"/></svg></div><h3>Fewer pain meds</h3><p>Diminished reliance on pain medications after surgery.</p></div>
+    </div>
+    <p style="margin-top:28px;color:var(--mut);font-size:.96rem">Some MIS surgeries are performed as outpatient procedures using only local anesthesia — reducing the risk of an adverse reaction to general anesthesia.</p>
+    <details class="risks">
+      <summary>Understanding the risks — an honest word</summary>
+      <div>
+        As with any surgical procedure, no matter how minimal, there are certain risks, including but not limited to:
+        <ul>
+          <li>Possible adverse reaction to the anesthetic</li>
+          <li>Unexpected blood loss during the procedure</li>
+          <li>Localized infections, no matter how small the incision area</li>
+        </ul>
+        And, though uncommon, there is always a small chance that the initial MIS surgery cannot be completed — requiring either a second procedure or full open surgery. Always discuss risks and benefits with your surgeon.
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="procedures rv" id="procedures">
+  <div class="wrap">
+    <span class="eyebrow">Common MIS approaches</span>
+    <h2>Procedures, in plain language.</h2>
+    <p class="sub">A few of the most common minimally invasive spine procedures and what they do.</p>
+    <div class="proc-grid">
+      <div class="pcard"><h3>Decompression</h3><p>Relieves pressure and pain caused by bone or disc material impinging on the spinal cord or nerves.</p></div>
+      <div class="pcard"><h3>Discectomy</h3><p>Surgical removal of part or all of an intervertebral disc to relieve pressure on a nerve root or the spinal cord.</p></div>
+      <div class="pcard"><h3>Foraminotomy</h3><p>Enlarges the bony opening where a nerve root exits the spinal canal, creating more space for the nerve.</p></div>
+      <div class="pcard"><h3>Laminectomy</h3><p>Removes the rear part of a vertebra to access the spinal cord or nerve roots and relieve pressure.</p></div>
+      <div class="pcard"><h3>Laminotomy</h3><p>Opens just part of the lamina — typically the symptomatic side — to relieve nerve root pressure.</p></div>
+      <div class="pcard"><h3>Medial facetectomy</h3><p>Removes part of the facet joint to increase space within the spinal canal.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="glossary rv" id="glossary">
+  <div class="wrap">
+    <span class="eyebrow">Patient education</span>
+    <h2>Spine terms, decoded.</h2>
+    <p class="sub">Type to search the glossary of common spine-related surgical terms.</p>
+    <input class="gsearch" id="gsearch" type="search" placeholder="Search terms — try &quot;stenosis&quot; or &quot;fusion&quot;…" aria-label="Search glossary">
+    <div class="terms" id="terms"></div>
+    <p class="noresults" id="noresults">No matching terms — try a different search.</p>
+  </div>
+</section>
+
+<section class="audiences rv" id="audiences">
+  <div class="wrap">
+    <span class="eyebrow">Who we serve</span>
+    <h2 style="font-size:clamp(1.8rem,3.6vw,2.6rem);margin:14px 0 40px">Built for patients and the surgeons who treat them.</h2>
+    <div class="aud-grid">
+      <div class="acard">
+        <h3>For patients</h3>
+        <p>Looking for a spine surgeon experienced in minimally invasive techniques? We can help connect you with qualified neurosurgeons, spine surgeons, and interventional pain physicians in your area.</p>
+        <a class="btn btn-line" href="mailto:customerservice@m1sx.com?subject=Find%20a%20doctor%20request">Find a doctor</a>
+      </div>
+      <div class="acard">
+        <h3>For surgeons &amp; facilities</h3>
+        <p>M1SX provides world-class representation, case coverage, and access to cutting-edge MIS technology. Join a nationwide network of excellence in spine surgery.</p>
+        <a class="btn btn-navy" href="mailto:customerservice@m1sx.com?subject=Surgeon%20%2F%20facility%20partnership%20inquiry">Partner with us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact rv" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Get in touch</span>
+    <h2>Contact M1SX</h2>
+    <div class="con-grid">
+      <div class="concard">
+        <h3>Office</h3>
+        <p>2620 Constitution Blvd, Suite 201<br>Beaver Falls, PA 15010</p>
+      </div>
+      <div class="concard">
+        <h3>Phone</h3>
+        <p><a class="big" href="tel:+17243592346">724-359-2346</a></p>
+        <p style="margin-top:8px"><a href="mailto:customerservice@m1sx.com">customerservice@m1sx.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brandline">
+      <img src="https://m1sx.com/wp-content/uploads/2023/09/cropped-M1Sx-Logo.png" alt="" onerror="this.style.display='none'">
+      M1SX — Match One Surgical
+    </div>
+    <p>Advancing minimally invasive spine surgery nationwide.</p>
+    <p class="disc">M1SX (Match One Surgical or Match One Medical) does not endorse any treatments, procedures, products or physicians referenced in these patient fact sheets. This information is provided as an educational service and is not intended to serve as medical advice. Anyone seeking specific neurosurgical advice or assistance should consult his or her neurosurgeon, spine surgeon, or interventional pain physician.<br><br>© 2026 M1SX — Match One Surgical. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // ---- glossary data (from m1sx.com/common-terms) ----
+  const TERMS = [
+    ["Bone spur","Bony growth or rough edges of bone (a.k.a. osteophyte)."],
+    ["Decompression","A surgical procedure performed to relieve pressure and alleviate pain caused by the impingement of bone and/or disc material on the spinal cord or nerves."],
+    ["Disc degeneration","Degeneration or wearing out of a disc over time. A deteriorated disc may or may not cause pain."],
+    ["Discectomy","The surgical removal of part or all of an intervertebral disc, performed to relieve pressure on a nerve root or the spinal cord."],
+    ["Excision","Removal by cutting away material, as in removing a disc."],
+    ["Facet","A posterior structure of a vertebra which joins with a facet of an adjacent vertebra to form a facet joint that allows motion in the spinal column."],
+    ["Foramen","A normally occurring opening or passage in the vertebrae of the spine through which the spinal nerve roots travel."],
+    ["Foraminotomy","Surgical opening or enlargement of the bony opening traversed by a nerve root as it leaves the spinal canal, to increase space for that nerve."],
+    ["Herniated disc","Also known as a slipped or ruptured disc — the gelatinous core of a disc bulges out of position and puts painful pressure on surrounding nerve roots."],
+    ["Intervertebral foramen","An opening between vertebrae through which nerves leave the spine and extend to other parts of the body. Also known as neural foramen."],
+    ["Kyphosis","A condition in which the upper back curves forward, sometimes appearing as a hump. May result from poor posture, osteoporosis-related fractures, trauma, or developmental problems."],
+    ["Lamina","The flattened or arched part of the vertebral arch, forming the roof of the spinal canal."],
+    ["Laminectomy","Surgical removal of the rear part of a vertebra to access the spinal cord or nerve roots, remove tumors, treat injuries, or relieve nerve pressure."],
+    ["Laminotomy","An opening made in a lamina to relieve pressure on the nerve roots — typically removing just half the lamina on the symptomatic side."],
+    ["Lordosis","The inward curve of the lumbar spine. Excessive lordosis (swayback) may be caused by osteoporosis, spondylolisthesis, obesity, congenital disorders, or compensation for kyphosis."],
+    ["Medial facetectomy","A procedure in which part of the facet is removed to increase space in the spinal canal."],
+    ["Nerve roots","The initial portion of a spinal nerve, extending from the spinal canal to the extremities — carrying sensory information to the brain and motor commands from it."],
+    ["Pedicle","The bony part of each side of the neural arch of a vertebra, connecting the lamina with the vertebral body."],
+    ["Percutaneous","Effected, occurring, or performed through the skin."],
+    ["Pseudarthrosis","Movement of bone at the site of a fracture or fusion, resulting from inadequate healing or failure of the fusion to mature properly."],
+    ["Scoliosis","Lateral (sideways) curvature of the spine."],
+    ["Spinal stenosis","Abnormal narrowing of the vertebral column that may put pressure on the spinal cord, spinal sac, or nerve roots."],
+    ["Spinous process","A slender projection of bone from the back of a vertebra to which muscles and ligaments attach."],
+    ["Spondylitis","Inflammation of vertebrae."],
+    ["Spondylolisthesis","The forward displacement of one vertebra on another."],
+    ["Spondylosis","Degenerative changes in the spine, most commonly affecting the intervertebral discs and facet joints."]
+  ];
+  const box = document.getElementById('terms');
+  box.innerHTML = TERMS.map(([t,d])=>`<div class="term"><b>${t}:</b> <span>${d}</span></div>`).join('');
+  const items = [...box.children];
+  const nores = document.getElementById('noresults');
+  document.getElementById('gsearch').addEventListener('input', e=>{
+    const q = e.target.value.trim().toLowerCase();
+    let shown = 0;
+    items.forEach(el=>{
+      const hit = el.textContent.toLowerCase().includes(q);
+      el.classList.toggle('hide', !hit);
+      if(hit) shown++;
+    });
+    nores.style.display = shown ? 'none' : 'block';
+  });
+
+  // ---- reveal on scroll ----
+  const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
